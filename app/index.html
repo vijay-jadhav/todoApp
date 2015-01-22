@@ -15,7 +15,7 @@
         <div ng-repeat="item in todos">
             <div>
                 <input type="checkbox" ng-model="item.completed"><span ng-bind="item.text"></span>
-                <button ng-click="delete($index)">X</button>
+                <button ng-click="delete(item)">X</button>
             </div>
         </div>
         <br>
