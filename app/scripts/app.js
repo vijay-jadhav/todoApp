@@ -8,7 +8,7 @@ angular.module("todoApp", [])
             $scope.newTodo = {};
         }
         $scope.delete = function(todo) {
-            var indexOfTodo = $scope.todos.indexOf(item);
+            var indexOfTodo = $scope.todos.indexOf(todo);
             $scope.todos.splice(indexOfTodo, 1);
         }
 
