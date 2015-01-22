@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="todoApp">
+
+    <div ng-controller="MainCtrl">
+        <div>
+            <input type="text" placeholder="Enter todo" ng-model="newTodo.text">
+            <input type="hidden" ng-model="newTodo.completed" value="false">
+            <button ng-click="add()">Add</button>
+        </div>
+        <div ng-repeat="item in todos">
+            <div>
+                <input type="checkbox" ng-model="item.completed"><span ng-bind="item.text"></span>
+                <button ng-click="delete($index)">X</button>
+            </div>
+        </div>
+        <br>
+        <button ng-click="clearCompleted()">Clear Completed</button>
+    </div>
+    <script src="lib/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
