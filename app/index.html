@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body ng-app="todoApp">
+<style>
+    body {
+        padding: 50px;
+    }
+    .completed {
+        text-decoration: line-through;
+    }
+
+</style>
+
+<body ng-app="myApp">
 
     <div ng-controller="MainCtrl">
         <div>
@@ -14,14 +24,19 @@
         </div>
         <div ng-repeat="item in todos">
             <div>
-                <input type="checkbox" ng-model="item.completed"><span ng-bind="item.text"></span>
-                <button ng-click="delete(item)">X</button>
+                <input type="checkbox" ng-model="item.completed"><span ng-bind="item.text" ng-class="{'completed': item.completed}" ></span>
+                <button ng-click="delete($index)">X</button>
             </div>
         </div>
-        <br>
+        <hr>
+        <a href="#">All</a> | <a href="#">Active</a> |<a href="#">Completed</a>
+        <hr>
         <button ng-click="clearCompleted()">Clear Completed</button>
     </div>
     <script src="lib/angular.min.js"></script>
+    <script src="scripts/todo/todo.module.js"></script>
+    <script src="scripts/todo/controllers/todo.controller.js"></script>
+    <script src="scripts/todo/services/todo.service.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 </html>
